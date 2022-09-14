@@ -1,26 +1,12 @@
-# Escribir una aplicación GUI (llamada Calculadora) que funcione como
-# una simple calculadora.
-# La aplicación lleva:
-# 1 - Tres etiquetas (Primer número, Segundo número y Resultado)
-# 2 - 3 lineEdit (el lineEdit de Resultado no se puede modificar)
-# 3 - 6 Botones (+, -, *, /, % y RESET). El botón CLEAR debe borrar los
-# 3 lineEdit. Al presionar (+, -, *, / o %) el único campo que se modifica
-# es Resultado.
-
-# Escribir una aplicación GUI (llamada Calculadora) que funcione como
-# una simple calculadora.
-# La aplicación lleva:
-# 1 - Tres etiquetas (Primer número, Segundo número y Resultado)
-# 2 - 3 lineEdit (el lineEdit de Resultado no se puede modificar)
-# 3 - 6 Botones (+, -, *, /, % y RESET). El botón CLEAR debe borrar los
-# 3 lineEdit. Al presionar (+, -, *, / o %) el único campo que se modifica
-# es Resultado.
+# Escribir una aplicación GUI (llamada Generador de números). Su
+# función será: al pulsar el botón Generar, generará un número
+# aleatorio en el rango de los dos Spin Box.
 
 from tkinter import *
 import tkinter as tk
 import random
 
-class Contador(tk.Tk):
+class Generador(tk.Tk):
 
     def __init__(self):
         super().__init__()
@@ -71,5 +57,5 @@ class Contador(tk.Tk):
         self.gen = Button(self,text="Añadir",command=lambda: self.generarNumero())
         self.gen.grid(column=1, row=4, sticky=tk.SW, padx=35, pady=5)
 
-root = Contador()
+root = Generador()
 root.mainloop()
