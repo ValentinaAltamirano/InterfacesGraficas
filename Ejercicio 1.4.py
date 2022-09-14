@@ -23,13 +23,13 @@ class Contador(tk.Tk):
             numN += 1
             self.entrada.delete(0, END)
             self.entrada.insert(0, str(numN))
-            self.entrada.config(state=tk.DISABLED)
+            self.entrada.config(state= 'readonly)
         else:
             num = int(num)
             num += 1
             self.entrada.delete(0, END)
             self.entrada.insert(0, str(num))
-            self.entrada.config(state=tk.DISABLED)
+            self.entrada.config(state= 'readonly')
     
     def restar(self):
         self.entrada.config(state=tk.NORMAL)
@@ -40,26 +40,26 @@ class Contador(tk.Tk):
             numN -= 1
             self.entrada.delete(0, END)
             self.entrada.insert(0, str(numN))
-            self.entrada.config(state=tk.DISABLED)
+            self.entrada.config(state= 'readonly')
         else:
             num = int(num)
             num -= 1
             self.entrada.delete(0, END)
             self.entrada.insert(0, str(num))
-            self.entrada.config(state=tk.DISABLED)
+            self.entrada.config(state= 'readonly')
 
     def reset(self):
         self.entrada.config(state=tk.NORMAL)
         self.entrada.delete(0, END)
         self.entrada.insert(0, 0)
-        self.entrada.config(state=tk.DISABLED)
+        self.entrada.config(state= 'readonly')
 
     def Widgets(self):
 
         self.cont = Label(self, text="Contador:")
         self.cont.grid(column=0, row=0, sticky=tk.E, padx=10, pady=20)
 
-        self.entrada = Entry(self,state=tk.DISABLED)
+        self.entrada = Entry(self,state= 'readonly')
         self.entrada.grid(column=1, row=0, sticky=tk.W, padx=0, pady=20)
 
         self.mas = Button(self, text="Count Up",command=lambda: self.aumentar())
