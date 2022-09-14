@@ -59,3 +59,6 @@ class Generador(tk.Tk):
 
 root = Generador()
 root.mainloop()
+
+#los nùmeros deben seleccionarse utilizando los spinbox, es decir no debo ingresar numeros manuales, hacer uso del control spinbox en numero 1 y numero 2 
+#al clickear el boton ,rompe, revisar la funcion generarNumero
