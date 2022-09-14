@@ -31,8 +31,8 @@ class Factorial(tk.Tk):
             f = self.factor(numN)
             self.num2.delete(0, END)
             self.num2.insert(0, str(f))
-            self.num.config(state=tk.DISABLED)
-            self.num2.config(state=tk.DISABLED)
+            self.num.config(state= 'readonly')
+            self.num2.config(state= 'readonly')
         else:
             num = int(num)
             num += 1
@@ -41,8 +41,8 @@ class Factorial(tk.Tk):
             f = self.factor(num)
             self.num2.delete(0, END)
             self.num2.insert(0, str(f))
-            self.num.config(state=tk.DISABLED)
-            self.num2.config(state=tk.DISABLED)
+            self.num.config(state= 'readonly')
+            self.num2.config(state= 'readonly')
         
             
     def factor(self,n):
@@ -53,13 +53,13 @@ class Factorial(tk.Tk):
         self.n = Label(self, text="n")
         self.n.grid(column=0, row=0, sticky=tk.E, padx=5, pady=5)
 
-        self.num = Entry(self,state=tk.DISABLED)
+        self.num = Entry(self,state= 'readonly')
         self.num.grid(column=1, row=0, sticky=tk.W, padx=0, pady=5)
 
         self.factorial = Label(self, text="Factorial (n)")
         self.factorial.grid(column=0, row=1, sticky=tk.E, padx=5, pady=5)
 
-        self.num2 = Entry(self,state=tk.DISABLED)
+        self.num2 = Entry(self,state= 'readonly')
         self.num2.grid(column=1, row=1, sticky=tk.W, padx=0, pady=5)
 
         self.siguiente = Button(self, text="Siguiente",command=lambda: self.numero())
