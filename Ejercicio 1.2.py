@@ -26,13 +26,13 @@ class Contador(tk.Tk):
             numN -= 1
             self.entrada.delete(0, END)
             self.entrada.insert(0, str(numN))
-            self.entrada.config(state=tk.DISABLED)
+            self.entrada.config(state= 'readonly')
         else:
             num = int(num)
             num -= 1
             self.entrada.delete(0, END)
             self.entrada.insert(0, str(num))
-            self.entrada.config(state=tk.DISABLED)
+            self.entrada.config(state= 'readonly')
             
 
     def Widgets(self):
@@ -40,7 +40,7 @@ class Contador(tk.Tk):
         self.cont = Label(self, text="Contador:")
         self.cont.grid(column=0, row=1, sticky=tk.E, padx=5, pady=10)
 
-        self.entrada = Entry(self,state= tk.DISABLED)
+        self.entrada = Entry(self,state= 'readonly')
         self.entrada.grid(column=1, row=1, sticky=tk.W, padx=0, pady=10)
 
         self.menos = Button(self, text="-",command=lambda: self.restar())
