@@ -16,7 +16,7 @@ class Contador(tk.Tk):
         self.columnconfigure(2, weight=3)
         self.rowconfigure(1, weight=5)
         self.Widgets()
-
+#revisar
     def restar(self):
         self.entrada.config(state=tk.NORMAL)
         num = self.entrada.get()
@@ -48,3 +48,6 @@ class Contador(tk.Tk):
         
 root = Contador()
 root.mainloop()
+
+#apenas ejecuto no trae ningun nº por defecto por lo tanto cuando empiezo a clickear comienza desde 0 y va hacia los -1. ·
+#En la consigna el valor por defecto inicial es 88 si mal lo recuerdo
