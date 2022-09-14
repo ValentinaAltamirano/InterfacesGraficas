@@ -52,3 +52,4 @@ class Contador(tk.Tk):
         
 root = Contador()
 root.mainloop()
+
