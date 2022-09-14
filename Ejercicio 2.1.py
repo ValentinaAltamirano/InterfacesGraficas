@@ -9,6 +9,7 @@
 
 from tkinter import *
 import tkinter as tk
+from wsgiref.validate import validator
 
 class Calculadora(tk.Tk):
 
@@ -19,62 +20,69 @@ class Calculadora(tk.Tk):
         self.geometry("250x200")
         self.Widgets()
 
+    def validar(self,n):
+        try:
+            float(n)
+            return True
+        except:
+            return False    
+
     def sumar(self):
         self.res.config(state=tk.NORMAL)
         p = self.entrada1.get()
         s = self.entrada2.get()
-
-        sum = int(p) + int(s)
-        self.res.delete(0, END)
-        self.res.insert(0, str(sum))
-        self.res.config(state=tk.DISABLED)
+        if self.validar(p) and self.validar(s):
+            sum = int(p) + int(s)
+            self.res.delete(0, END)
+            self.res.insert(0, str(sum))
+            self.res.config(state='readonly')
 
     def restar(self):
         self.res.config(state=tk.NORMAL)
         p = self.entrada1.get()
         s = self.entrada2.get()
-
-        res = int(p) - int(s)
-        self.res.delete(0, END)
-        self.res.insert(0, str(res))
-        self.res.config(state=tk.DISABLED)        
+        if self.validar(p) and self.validar(s):
+            res = int(p) - int(s)
+            self.res.delete(0, END)
+            self.res.insert(0, str(res))
+            self.res.config(state= 'readonly')        
 
     def multiplicar(self):
         self.res.config(state=tk.NORMAL)
         p = self.entrada1.get()
         s = self.entrada2.get()
-
-        m = int(p) * int(s)
-        self.res.delete(0, END)
-        self.res.insert(0, str(m))  
-        self.res.config(state=tk.DISABLED)      
+        if self.validar(p) and self.validar(s):
+            m = int(p) * int(s)
+            self.res.delete(0, END)
+            self.res.insert(0, str(m))  
+            self.res.config(state= 'readonly')      
 
     def dividir(self):
         self.res.config(state=tk.NORMAL)
         p = self.entrada1.get()
         s = self.entrada2.get()
-
-        d = int(p) / int(s)
-        self.res.delete(0, END)
-        self.res.insert(0, str(d)) 
-        self.res.config(state=tk.DISABLED)   
+        if self.validar(p) and self.validar(s):
+            d = int(p) / int(s)
+            self.res.delete(0, END)
+            self.res.insert(0, str(d)) 
+            self.res.config(state= 'readonly')   
 
     def modulo(self):
         self.res.config(state=tk.NORMAL)
         p = self.entrada1.get()
         s = self.entrada2.get()
-
-        m = int(p) % int(s)
-        self.res.delete(0, END)
-        self.res.insert(0, str(m))
-        self.res.config(state=tk.DISABLED)
-    
+        if self.validar(p) and self.validar(s):
+            m = int(p) % int(s)
+            self.res.delete(0, END)
+            self.res.insert(0, str(m))
+            self.res.config(state= 'readonly')
+        
     def eliminar(self):
         self.res.config(state=tk.NORMAL)
         self.entrada1.delete(0, END)
         self.entrada2.delete(0, END)
         self.res.delete(0, END)
-        self.res.config(state=tk.DISABLED)
+        self.res.config(state='readonly')
             
 
     def Widgets(self):
