@@ -23,6 +23,7 @@ class Contador(tk.Tk):
             numN += 1
             self.entrada.delete(0, END)
             self.entrada.insert(0, str(numN))
+            # self.entrada.config(state= 'readonly')
             self.entrada.config(state= 'readonly)
         else:
             num = int(num)
