@@ -20,9 +20,9 @@ class Contador(Frame):
     def añadirPelicula(self):
         p = self.peli.get()
         listP.append(p)
-        self.peli.delete(0, END)
-        self.lista.delete(0, END)
-        self.lista.insert(0, str(listP))
+        for i in range(len(listP)):
+            self.lista.insert(0, str(listP[i]))
+            listP.pop(i)
             
 
     def createWidgets(self):
@@ -36,10 +36,12 @@ class Contador(Frame):
         self.añadir = Button(self, text="Añadir",command=lambda: self.añadirPelicula())
         self.añadir.grid(row=3, column=1, sticky="sew")
 
-        self.p = Label(self, text="Peliculas", state=DISABLED)
+        self.p = Label(self, text="Peliculas")
         self.p.grid(row=2, column=2, sticky="sew")
 
         self.lista = Listbox(self)
+        self.lista.insert(0, 'Tom y Jerry')
+        self.lista.insert(1, '7 Almas')
         self.lista.grid(row=2, column=5, sticky="sew")
         
 ventana = Tk()
