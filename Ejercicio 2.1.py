@@ -122,7 +122,7 @@ class Calculadora(tk.Tk):
         self.res = Entry(self)
         self.res.grid(column=1, row=2, sticky=tk.E, padx=0, pady=5)
         self.res.insert(0,'0')
-        self.res.config('readonly')
+        self.res.config(state='readonly')
 
         self.suma = Button(self, text="+",command=lambda: self.sumar())
         self.suma.grid(column=0, row=3, sticky=tk.EW, padx=5, pady=5)
