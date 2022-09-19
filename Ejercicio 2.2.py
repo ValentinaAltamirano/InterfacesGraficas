@@ -2,6 +2,10 @@
 # pulsar el botón Añadir, agregará en el listWidget el contenido de
 # lineEdit (Películas).
 
+# Escribir una aplicación GUI (llamada Películas). Su función será: al
+# pulsar el botón Añadir, agregará en el listWidget el contenido de
+# lineEdit (Películas).
+
 from tkinter import *
 from tkinter import messagebox
 listP = []
@@ -24,6 +28,7 @@ class Contador(Frame):
             for i in range(len(listP)):
                 self.lista.insert(0, str(listP[i]))
                 listP.pop(i)
+                self.peli.delete(0, END)
             
 
     def createWidgets(self):
