@@ -36,24 +36,30 @@ class Generador(tk.Tk):
                 self.res.insert(0, str(num))
                 self.res.config(state='readonly')
             else:
-                messagebox.showinfo(message="Fuera de rango, el primer numero debe ser menor que el segundo.", title="Error")
+                num = random.randint(int(n2), int(n1))
+                self.res.delete(0, END)
+                self.res.insert(0, str(num))
+                self.res.config(state='readonly')
             
 
     def Widgets(self):
+        self.SpinBoxVar= tk.StringVar()
+        self.SpinBoxVar.set("0")
+
+        self.SpinBoxVar2= tk.StringVar()
+        self.SpinBoxVar2.set("0")
+
         self.e = Label(self, text="Primer número")
         self.e.grid(column=0, row=0, sticky=tk.E, padx=5, pady=10)
 
-        self.entrada1 = Spinbox(from_=0, to=1000, increment=1, state="readonly")
+        self.entrada1 = Spinbox(from_=-100, to=1000, increment=1, state="readonly", textvariable=self.SpinBoxVar)
         self.entrada1.grid(column=1, row=0, sticky=tk.W, padx=0, pady=10)
-        self.entrada1.insert(0, '18')
 
         self.e2 = Label(self, text="Segundo número")
         self.e2.grid(column=0, row=1, sticky=tk.E, padx=5, pady=10)
 
-        self.entrada2 = Spinbox(from_=0, to=1000, increment=1, state="readonly")
+        self.entrada2 = Spinbox(from_=-100, to=1000, increment=1, state="readonly", textvariable=self.SpinBoxVar2)
         self.entrada2.grid(column=1, row=1, sticky=tk.W, padx=0, pady=10)
-        self.entrada2.insert(0, '18')
-
 
         self.r = Label(self, text="Número generado")
         self.r.grid(column=0, row=3, sticky=tk.E, padx=5, pady=10) 
