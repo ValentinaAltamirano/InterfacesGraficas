@@ -23,8 +23,7 @@ class Contador(tk.Tk):
             numN += 1
             self.entrada.delete(0, END)
             self.entrada.insert(0, str(numN))
-            # self.entrada.config(state= 'readonly')
-            self.entrada.config(state= 'readonly)
+            self.entrada.config(state= 'readonly')
         else:
             num = int(num)
             num += 1
@@ -60,8 +59,10 @@ class Contador(tk.Tk):
         self.cont = Label(self, text="Contador:")
         self.cont.grid(column=0, row=0, sticky=tk.E, padx=10, pady=20)
 
-        self.entrada = Entry(self,state= 'readonly')
+        self.entrada = Entry(self)
         self.entrada.grid(column=1, row=0, sticky=tk.W, padx=0, pady=20)
+        self.entrada.insert(0, '0')
+        self.entrada.config(state= 'readonly')
 
         self.mas = Button(self, text="Count Up",command=lambda: self.aumentar())
         self.mas.grid(column=2, row=0, sticky=tk.W, padx=5, pady=20)
@@ -72,7 +73,6 @@ class Contador(tk.Tk):
         self.borrar = Button(self, text="Reset",command=lambda: self.reset())
         self.borrar.grid(column=4, row=0, sticky=tk.W, padx=5, pady=20)
 
-        
 
 root = Contador()
 root.mainloop()
