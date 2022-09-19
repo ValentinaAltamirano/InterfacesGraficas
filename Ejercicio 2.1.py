@@ -9,6 +9,7 @@
 
 from tkinter import *
 import tkinter as tk
+from tkinter import messagebox
 from wsgiref.validate import validator
 
 class Calculadora(tk.Tk):
@@ -31,51 +32,86 @@ class Calculadora(tk.Tk):
         self.res.config(state=tk.NORMAL)
         p = self.entrada1.get()
         s = self.entrada2.get()
-        if self.validar(p) and self.validar(s):
-            sum = float(p) + float(s)
-            self.res.delete(0, END)
-            self.res.insert(0, str(sum))
-            self.res.config(state='readonly')
+        numlen = len(str(p))
+        numlen2 = len(str(s))
+        if numlen == 0 or numlen2 == 0:
+            messagebox.showinfo(message="No se ah ingresado ningun numero.", title="Error")
+        else:
+            if self.validar(p) and self.validar(s):
+                sum = float(p) + float(s)
+                self.res.delete(0, END)
+                self.res.insert(0, str(sum))
+                self.res.config(state='readonly')
+            else:
+                messagebox.showinfo(message="Ingrese un numero porfavor.", title="Error")
 
     def restar(self):
         self.res.config(state=tk.NORMAL)
         p = self.entrada1.get()
         s = self.entrada2.get()
-        if self.validar(p) and self.validar(s):
-            res = float(p) - float(s)
-            self.res.delete(0, END)
-            self.res.insert(0, str(res))
-            self.res.config(state= 'readonly')        
+        numlen = len(str(p))
+        numlen2 = len(str(s))
+        if numlen == 0 or numlen2 == 0:
+            messagebox.showinfo(message="No se ah ingresado ningun numero.", title="Error")
+        else:
+            if self.validar(p) and self.validar(s):
+                res = float(p) - float(s)
+                self.res.delete(0, END)
+                self.res.insert(0, str(res))
+                self.res.config(state= 'readonly')    
+            else:
+                messagebox.showinfo(message="Ingrese un numero porfavor.", title="Error")    
 
     def multiplicar(self):
         self.res.config(state=tk.NORMAL)
         p = self.entrada1.get()
         s = self.entrada2.get()
-        if self.validar(p) and self.validar(s):
-            m = float(p) * float(s)
-            self.res.delete(0, END)
-            self.res.insert(0, str(m))  
-            self.res.config(state= 'readonly')      
+        numlen = len(str(p))
+        numlen2 = len(str(s))
+        if numlen == 0 or numlen2 == 0:
+            messagebox.showinfo(message="No se ah ingresado ningun numero.", title="Error")
+        else:
+            if self.validar(p) and self.validar(s):
+                m = float(p) * float(s)
+                self.res.delete(0, END)
+                self.res.insert(0, str(m))  
+                self.res.config(state= 'readonly')  
+            else:
+                messagebox.showinfo(message="Ingrese un numero porfavor.", title="Error")
 
     def dividir(self):
         self.res.config(state=tk.NORMAL)
         p = self.entrada1.get()
         s = self.entrada2.get()
-        if self.validar(p) and self.validar(s):
-            d = float(p) / float(s)
-            self.res.delete(0, END)
-            self.res.insert(0, str(d)) 
-            self.res.config(state= 'readonly')   
+        numlen = len(str(p))
+        numlen2 = len(str(s))
+        if numlen == 0 or numlen2 == 0:
+            messagebox.showinfo(message="No se ah ingresado ningun numero.", title="Error")
+        else:
+            if self.validar(p) and self.validar(s):
+                d = float(p) / float(s)
+                self.res.delete(0, END)
+                self.res.insert(0, str(d)) 
+                self.res.config(state= 'readonly')   
+            else:
+                messagebox.showinfo(message="Ingrese un numero porfavor.", title="Error")
 
     def modulo(self):
         self.res.config(state=tk.NORMAL)
         p = self.entrada1.get()
         s = self.entrada2.get()
-        if self.validar(p) and self.validar(s):
-            m = float(p) % float(s)
-            self.res.delete(0, END)
-            self.res.insert(0, str(m))
-            self.res.config(state= 'readonly')
+        numlen = len(str(p))
+        numlen2 = len(str(s))
+        if numlen == 0 or numlen2 == 0:
+            messagebox.showinfo(message="No se ah ingresado ningun numero.", title="Error")
+        else:
+            if self.validar(p) and self.validar(s):
+                m = float(p) % float(s)
+                self.res.delete(0, END)
+                self.res.insert(0, str(m))
+                self.res.config(state= 'readonly')
+            else:
+                messagebox.showinfo(message="Ingrese un numero porfavor.", title="Error")
         
     def eliminar(self):
         self.res.config(state=tk.NORMAL)
