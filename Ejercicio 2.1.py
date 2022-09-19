@@ -32,69 +32,52 @@ class Calculadora(tk.Tk):
         self.res.config(state=tk.NORMAL)
         p = self.entrada1.get()
         s = self.entrada2.get()
-        numlen = len(str(p))
-        numlen2 = len(str(s))
-        if numlen == 0 or numlen2 == 0:
-            messagebox.showinfo(message="No se ah ingresado ningun numero.", title="Error")
+        if self.validar(p) and self.validar(s):
+            sum = float(p) + float(s)
+            self.res.delete(0, END)
+            self.res.insert(0, str(sum))
+            self.res.config(state='readonly')
         else:
-            if self.validar(p) and self.validar(s):
-                sum = float(p) + float(s)
-                self.res.delete(0, END)
-                self.res.insert(0, str(sum))
-                self.res.config(state='readonly')
-            else:
-                messagebox.showinfo(message="Ingrese un numero porfavor.", title="Error")
+            messagebox.showinfo(message="Ingrese un numero porfavor.", title="Error")
 
     def restar(self):
         self.res.config(state=tk.NORMAL)
         p = self.entrada1.get()
         s = self.entrada2.get()
-        numlen = len(str(p))
-        numlen2 = len(str(s))
-        if numlen == 0 or numlen2 == 0:
-            messagebox.showinfo(message="No se ah ingresado ningun numero.", title="Error")
+        if self.validar(p) and self.validar(s):
+            res = float(p) - float(s)
+            self.res.delete(0, END)
+            self.res.insert(0, str(res))
+            self.res.config(state= 'readonly')    
         else:
-            if self.validar(p) and self.validar(s):
-                res = float(p) - float(s)
-                self.res.delete(0, END)
-                self.res.insert(0, str(res))
-                self.res.config(state= 'readonly')    
-            else:
-                messagebox.showinfo(message="Ingrese un numero porfavor.", title="Error")    
+            messagebox.showinfo(message="Ingrese un numero porfavor.", title="Error")    
 
     def multiplicar(self):
         self.res.config(state=tk.NORMAL)
         p = self.entrada1.get()
         s = self.entrada2.get()
-        numlen = len(str(p))
-        numlen2 = len(str(s))
-        if numlen == 0 or numlen2 == 0:
-            messagebox.showinfo(message="No se ah ingresado ningun numero.", title="Error")
+        if self.validar(p) and self.validar(s):
+            m = float(p) * float(s)
+            self.res.delete(0, END)
+            self.res.insert(0, str(m))  
+            self.res.config(state= 'readonly')  
         else:
-            if self.validar(p) and self.validar(s):
-                m = float(p) * float(s)
-                self.res.delete(0, END)
-                self.res.insert(0, str(m))  
-                self.res.config(state= 'readonly')  
-            else:
-                messagebox.showinfo(message="Ingrese un numero porfavor.", title="Error")
+            messagebox.showinfo(message="Ingrese un numero porfavor.", title="Error")
 
     def dividir(self):
         self.res.config(state=tk.NORMAL)
         p = self.entrada1.get()
         s = self.entrada2.get()
-        numlen = len(str(p))
-        numlen2 = len(str(s))
-        if numlen == 0 or numlen2 == 0:
-            messagebox.showinfo(message="No se ah ingresado ningun numero.", title="Error")
-        else:
-            if self.validar(p) and self.validar(s):
+        if self.validar(p) and self.validar(s):
+            if int(s) == 0:
+                messagebox.showinfo(message="No se puede dividir por cero.", title="Error")
+            else:
                 d = float(p) / float(s)
                 self.res.delete(0, END)
                 self.res.insert(0, str(d)) 
                 self.res.config(state= 'readonly')   
-            else:
-                messagebox.showinfo(message="Ingrese un numero porfavor.", title="Error")
+        else:
+            messagebox.showinfo(message="Ingrese un numero porfavor.", title="Error")
 
     def modulo(self):
         self.res.config(state=tk.NORMAL)
@@ -102,16 +85,13 @@ class Calculadora(tk.Tk):
         s = self.entrada2.get()
         numlen = len(str(p))
         numlen2 = len(str(s))
-        if numlen == 0 or numlen2 == 0:
-            messagebox.showinfo(message="No se ah ingresado ningun numero.", title="Error")
+        if self.validar(p) and self.validar(s):
+            m = float(p) % float(s)
+            self.res.delete(0, END)
+            self.res.insert(0, str(m))
+            self.res.config(state= 'readonly')
         else:
-            if self.validar(p) and self.validar(s):
-                m = float(p) % float(s)
-                self.res.delete(0, END)
-                self.res.insert(0, str(m))
-                self.res.config(state= 'readonly')
-            else:
-                messagebox.showinfo(message="Ingrese un numero porfavor.", title="Error")
+            messagebox.showinfo(message="Ingrese un numero porfavor.", title="Error")
         
     def eliminar(self):
         self.res.config(state=tk.NORMAL)
@@ -127,18 +107,22 @@ class Calculadora(tk.Tk):
 
         self.entrada1 = Entry(self)
         self.entrada1.grid(column=1, row=0, sticky=tk.E, padx=0, pady=5)
+        self.entrada1.insert(0,'0')
 
         self.e2 = Label(self, text="Segundo número")
         self.e2.grid(column=0, row=1, sticky=tk.E, padx=0, pady=5)
 
         self.entrada2 = Entry(self)
         self.entrada2.grid(column=1, row=1, sticky=tk.E, padx=0, pady=5)
-
+        self.entrada2.insert(0,'0')
+        
         self.r = Label(self, text="Resultado")
         self.r.grid(column=0, row=2, sticky=tk.E, padx=0, pady=5)
 
-        self.res = Entry(self,state=tk.DISABLED)
+        self.res = Entry(self)
         self.res.grid(column=1, row=2, sticky=tk.E, padx=0, pady=5)
+        self.res.insert(0,'0')
+        self.res.config('readonly')
 
         self.suma = Button(self, text="+",command=lambda: self.sumar())
         self.suma.grid(column=0, row=3, sticky=tk.EW, padx=5, pady=5)
