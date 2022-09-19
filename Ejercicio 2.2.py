@@ -2,24 +2,18 @@
 # pulsar el botón Añadir, agregará en el listWidget el contenido de
 # lineEdit (Películas).
 
-# Escribir una aplicación GUI (llamada Películas). Su función será: al
-# pulsar el botón Añadir, agregará en el listWidget el contenido de
-# lineEdit (Películas).
-
-# Escribir una aplicación GUI (llamada Películas). Su función será: al
-# pulsar el botón Añadir, agregará en el listWidget el contenido de
-# lineEdit (Películas).
-
 from tkinter import *
+import tkinter as tk
 from tkinter import messagebox
 
-class Contador(Frame):
+class Peliculas(tk.Tk):
 
-    def __init__(self, master, *args, **kwargs):
-        Frame.__init__(self, master, *args, **kwargs)
-        self.parent = master
-        self.grid()
-        self.createWidgets()
+    def __init__(self):
+        super().__init__()
+        self.title("Películas")
+        self.resizable(False, False)
+        self.geometry("400x200")
+        self.Widgets()
 
     def añadirPelicula(self):
         p = self.peli.get()
@@ -29,9 +23,8 @@ class Contador(Frame):
         else:
             self.lista.insert(END, p)
             self.peli.delete(0, END)
-            
 
-    def createWidgets(self):
+    def Widgets(self):
 
         self.p = Label(self, text="Escribe el titulo de la película:")
         self.p.grid(row=1, column=1, sticky="sew", padx = 15)
@@ -50,10 +43,7 @@ class Contador(Frame):
         self.lista.insert(1, '7 Almas')
         self.lista.grid(row=0, column=5, sticky=EW, rowspan=5,pady = 5)
         
-ventana = Tk()
-ventana.title("Películas")
-ventana.resizable(False, False)
-ventana.geometry("400x200")
-root = Contador(ventana).grid()
 
-ventana.mainloop()
+root = Peliculas()
+
+root.mainloop()
