@@ -9,7 +9,7 @@ class Calculadora(tk.Tk):
 
     def __init__(self):
         super().__init__()
-        self.title("Contador")
+        self.title("Calculadora 2")
         self.resizable(False, False)
         self.geometry("370x220")
         self.Widgets()
