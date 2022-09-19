@@ -89,25 +89,25 @@ class Calculadora(tk.Tk):
     def Widgets(self):
         self.radioValue = tk.IntVar() 
 
-        self.e = Label(self, text="Primer número")
-        self.e.grid(column=0, row=1, sticky=tk.E, padx=0, pady=5)
+        self.e = Label(self, text="Valor 1")
+        self.e.grid(column=0, row=1, sticky=tk.E, padx=5, pady=5)
 
         self.entrada1 = Entry(self)
-        self.entrada1.grid(column=1, row=1, sticky=tk.E, padx=0, pady=5)
+        self.entrada1.grid(column=1, row=1, sticky=tk.E, padx=5, pady=5)
         self.entrada1.insert(0,'0')
 
-        self.e2 = Label(self, text="Segundo número")
-        self.e2.grid(column=0, row=2, sticky=tk.E, padx=0, pady=5)
+        self.e2 = Label(self, text="Valor 2")
+        self.e2.grid(column=0, row=2, sticky=tk.E, padx=5, pady=5)
 
         self.entrada2 = Entry(self)
-        self.entrada2.grid(column=1, row=2, sticky=tk.E, padx=0, pady=5)
+        self.entrada2.grid(column=1, row=2, sticky=tk.E, padx=5, pady=5)
         self.entrada2.insert(0,'0')
         
         self.r = Label(self, text="Resultado")
-        self.r.grid(column=0, row=3, sticky=tk.E, padx=0, pady=5)
+        self.r.grid(column=0, row=3, sticky=tk.E, padx=5, pady=5)
 
         self.res = Entry(self)
-        self.res.grid(column=1, row=3, sticky=tk.E, padx=0, pady=5)
+        self.res.grid(column=1, row=3, sticky=tk.E, padx=5, pady=5)
         self.res.insert(0,'0')
         self.res.config(state='readonly')
 
@@ -121,7 +121,7 @@ class Calculadora(tk.Tk):
         self.resta.grid(column=3, row=2, sticky=tk.EW, padx=5, pady=5)
 
         self.mult = Radiobutton(self, text="Multiplicar",variable=self.radioValue, value=3)
-        self.mult.grid(column=3, row=3, sticky=tk.E, padx=5, pady=5)
+        self .mult.grid(column=3, row=3, sticky=tk.E, padx=5, pady=5)
 
         self.div = Radiobutton(self, text="Dividir",variable=self.radioValue, value=4)
         self.div.grid(column=3, row=4, sticky=tk.EW, padx=5, pady=5)
